@@ -1,0 +1,90 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": ["airbnb", "airbnb-typescript", "prettier", "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "plugin:import/errors"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier", "import", "@typescript-eslint", "@typescript-eslint/eslint-plugin"],
+  "root": true,
+  "rules": {
+    "no-param-reassign": 0,
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "@typescript-eslint/no-var-requires": 0,
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "warn",
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/require-default-props": "off",
+    "import/no-extraneous-dependencies": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "import/order": [
+      1,
+      { "groups":
+      [
+        "external",
+        "builtin",
+        "internal",
+        "sibling",
+        "parent",
+        "index"
+      ],
+        "pathGroups": [
+          {
+            "pattern": "@/*",
+            "group": "internal"
+          }
+        ],
+        "pathGroupsExcludedImportTypes":
+        ["internal"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react",
+            "importNames": ["default"],
+            "message": "React default is automatically imported by webpack."
+          }
+        ]
+      }
+    ]
+
+  },
+  "globals": {
+    "__IS_DEV__": true,
+    "__API__": true,
+    "__PROJECT__": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "ignorePatterns": ["config/**/*.ts", "webpack.config.ts", "vite.config.ts"],
+  "overrides": [{
+    "files": ["**/src/**/*.{test,stories}.{ts,tsx}"]
+  }]
+}
